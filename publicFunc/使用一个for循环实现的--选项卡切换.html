@@ -1,0 +1,126 @@
+<!doctype html>
+<html lang="en">
+ <head>
+  <meta charset="UTF-8">
+  <meta name="Generator" content="EditPlus®">
+  <meta name="Author" content="">
+  <meta name="Keywords" content="">
+  <meta name="Description" content="">
+  <title>Document</title>
+ <style>
+  *{padding:0; margin:0}
+  ul li{list-style:none;}
+  body{font-family:"微软雅黑"}
+  .boxDom{ height:600px; margin:50px auto; border:1px solid black; position:relative;}
+  #nav{width:100%; height:50px; background:#888;}
+  #nav li{width:300px; height:100%; line-height:50px; text-align:center; float:left;}
+  #nav li:hover,#nav li.check{background:pink;}
+  #cont{top:50px;}
+  #cont li{top:0; display:none;}
+  #cont,#cont li{width:100%; height:550px; position:absolute; left:0; }
+  
+
+ </style> 
+ </head>
+ <body>
+  <div class="boxDom">
+  	<ul id="nav">
+  		<li class="check">导航1</li>
+  		<li>导航2</li>
+		  <li>导航3</li>
+		  <li>导航2</li>
+  		<li>导航3</li>
+  	</ul>
+	<ul id="cont">
+		<li style="background:orange; display:block;">内容1</li>
+		<li style="background:skyblue">内容2</li>
+		<li style="background:yellow">内容3</li>
+		<li style="background:skyblue">内容2</li>
+		<li style="background:yellow">内容3</li>
+	</ul>
+ </div>
+ 
+ <script>
+ 
+	 function $(id){
+	    return document.getElementById(id);
+	 };    
+	 
+	 var nav = $("nav");
+     var navLi = nav.getElementsByTagName("li");
+      var cont = $("cont");
+	  var contLi = cont.getElementsByTagName("li");
+
+
+    // var lastOne = 0;
+	// for(var i = 0; i<navLi.length; i++){
+	// 	navLi[i].index = i
+	// 	navLi[i].onclick = function(){
+	// 		for(var i=0; i<navLi.length; i++){
+	// 			navLi[i].className="";
+	// 			contLi[i].style.display="none";
+	// 		 };
+	// 		this.className="check";
+	// 		contLi[this.index].style.display="block";
+	// 	}
+		
+
+//		(function(index){
+//			navLi[index].onclick = function(){
+//				navLi[lastOne].className = "";
+//				contLi[lastOne].style.display = "none";
+//				this.className = "check";
+//				contLi[index].style.display="block";
+//				lastOne = index;
+//			}
+//		})(i)
+	// }
+
+
+	
+
+    var lastOne =[0,0];
+	for(var i = 0; i<navLi.length; i++){
+		navLi[i].index = i
+		navLi[i].onclick = function(){
+			lastOne.push(this.index);
+			if(lastOne.length >=3){
+				lastOne = lastOne.splice(1);
+			}
+			navLi[lastOne[0]].className="";
+			navLi[lastOne[1]].className="check";dd
+			contLi[lastOne[0]].style.display="none";
+			contLi[lastOne[1]].style.display="block";
+		}
+	}
+	
+    
+
+//     for( var i=0; i<navLi.length; i++){
+//		//navLi[i].index = i;  // index是索引值，等于拿到的是下标
+//		navLi[i].setAttribute("index",i);
+//		navLi[i].onclick =fn; 
+//
+//	 };
+//
+//	
+//       function fn(){
+//		  var cont = $("cont");
+//		  var contLi = cont.getElementsByTagName("li");
+//		  var index = this.getAttribute("index")
+//		  
+//		  for(var i=0; i<navLi.length; i++){
+//			navLi[i].className="";
+//			contLi[i].style.display="none";
+//		  };
+//			this.className="check";
+//			contLi[index].style.display="block";
+//		}; 
+ 
+ </script>
+
+
+
+
+ </body>
+</html>
