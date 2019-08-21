@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+    body {
+        background-color: #edecec;
+    }
+
+    div {
+        width: 260px;
+        height: 260px;
+        background-color: #f6f6f6;
+        border-radius: 50%;
+        overflow: hidden;
+    }
+
+    div::after {
+        content: "";
+        display: block;
+        width: 260px;
+        height: 260px;
+        margin: 0 auto;
+        transform: rotate(0deg);
+        text-align: center;
+        border-radius: 50%;
+        background: #ffffff url(1.png) no-repeat center;
+        transition: all 0.4s;
+    }
+
+    div:hover::after {
+        transform: rotate(380deg) scale(0.9);
+        cursor: pointer;
+    }
+    </style>
+</head>
+
+<body>
+    <header>
+        <div>
+        </div>
+    </header>
+</body>
+
+</html>
